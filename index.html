@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dry Ice Kentucky | Dry Ice Pickup in Nicholasville &amp; Lexington</title>
+<meta name="description" content="Dry ice pellets with fast local pickup in Nicholasville and Lexington, Kentucky. Clear pricing, easy online ordering, same-day pickup 9 AM–5 PM.">
+<link rel="stylesheet" href="/static/css/styles.css">
+<link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="wrap nav">
+    <a class="brand" href="#home">
+      <img class="brand-logo" src="/static/images/logo.png" alt="Dry Ice Kentucky — Nicholasville, Lexington, Georgetown" width="600" height="138">
+    </a>
+    <nav class="navlinks">
+      <a href="#pricing">Pricing</a>
+      <a href="#estimator">How Much?</a>
+      <a href="#order">Order</a>
+      <a href="#pickup">Pickup</a>
+      <a href="#guides">Guides</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    
+    
+    <div class="nav-actions">
+      
+      <a class="btn primary small" href="#order">Order Now</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow">Same-day local pickup</div>
+
+      
+      <h1>
+        Dry Ice Pellets in<br class="h1-break">
+        Nicholasville / Lexington<br class="h1-break">
+        Order Now - Pick-Up Today
+      </h1>
+
+      <p>Dry ice pellets with fast local fulfillment. Available at 3004 Park Central Ave, Suite B,
+         Nicholasville, KY 40356. Open Monday–Friday from 9 AM to 5 PM.
+         Call (859) 514-3114 or order via email.</p>
+
+      <div class="hero-actions">
+        <a class="btn on-dark" href="tel:+18595143114">Order by Phone</a>
+        <a class="btn primary"
+           href="mailto:orders@bluegrassdryice.com?subject=Dry%20Ice%20Pickup%20Order">Order by Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Choose your amount</div>
+    <h2>Simple, Upfront Dry Ice Pricing.</h2>
+    <p class="lead">No hidden fees. Order online or walk in while supply is available.</p>
+
+    <div class="table-card">
+      <div class="table-scroll">
+        <table class="price">
+          <thead>
+            <tr><th>Size</th><th>Price</th><th>Price per pound</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            
+            <tr>
+              <td>10 lb bag</td>
+              <td class="price-cell">$35.00</td>
+              <td>$3.50/lb</td>
+              <td>Small coolers, short trips, fog effects</td>
+            </tr>
+            
+            <tr>
+              <td>20 lb bag</td>
+              <td class="price-cell">$60.00</td>
+              <td>$3.00/lb</td>
+              <td>Shipping, medium coolers, day events</td>
+            </tr>
+            
+            <tr>
+              <td>50 lb bag</td>
+              <td class="price-cell">$140.00</td>
+              <td>$2.80/lb</td>
+              <td>Freezer backup, large containers</td>
+            </tr>
+            
+            <tr>
+              <td>100 lb bag</td>
+              <td class="price-cell">$250.00</td>
+              <td>$2.50/lb</td>
+              <td>Large shipments and high-volume cooling</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="note-bar">
+      <span><b>Foam containers:</b>
+        Small / standard foam container $10.00 · Medium foam container $18.00 · Large foam container $25.00
+      </span>
+      <span><b>Need 200+ lbs?</b> Call or text
+        <a href="tel:+18595143114"><b>(859) 514-3114</b></a> for bulk pricing.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATOR -->
+<section class="section soft" id="estimator">
+  <div class="wrap">
+    <div class="eyebrow">Simple estimator</div>
+    <h2>How Much Dry Ice Do I Need?</h2>
+    <p class="lead">Get a quick starting recommendation based on what you're doing, how long you need it,
+       and your container size.</p>
+
+    <div class="estimator">
+      <div class="card">
+        <div class="field">
+          <label for="calcUse">What are you using dry ice for?</label>
+          <select id="calcUse">
+            <option value="ship">Shipping frozen food</option>
+            <option value="cooler">Keeping a cooler cold</option>
+            <option value="fog">Halloween / party fog</option>
+            <option value="freezer">Freezer backup / power outage</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="calcDays">How long do you need it?</label>
+          <select id="calcDays">
+            <option value="0.5">Up to 12 hours</option>
+            <option value="1">About 24 hours</option>
+            <option value="2">About 48 hours</option>
+            <option value="3" selected>About 72 hours</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="calcSize">Cooler / container size</label>
+          <select id="calcSize">
+            <option value="1">Small (under 25 qt)</option>
+            <option value="1.4" selected>Medium (25–50 qt)</option>
+            <option value="2">Large (50–100 qt)</option>
+            <option value="3">Extra large / chest freezer</option>
+          </select>
+        </div>
+        <button class="btn primary block" id="estimateBtn">Get recommendation</button>
+      </div>
+
+      <div class="card rec">
+        <div class="eyebrow">Starting recommendation</div>
+        <div class="big" id="recRange">—</div>
+        <p id="recCopy">Tell us about your job and we'll suggest a practical starting range.</p>
+        <p class="fineprint">Actual use varies with insulation, ambient temperature, how often the container is
+           opened, and how full it is. This is a planning estimate, not a guarantee.</p>
+        
+        <a class="btn ghost block" href="#order">Order <span id="recBagLabel">the recommended bag</span> →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ORDER -->
+
+<section class="ho-section" id="order">
+  <div class="ho-wrap">
+
+    <div class="ho-head">
+      <p class="ho-eyebrow">Ready to order?</p>
+      <h2>How to Get Dry Ice Today.</h2>
+      <p>Online ordering is on the way. Until then, it's three quick steps:
+         reach out, come by, and pay when you pick up.</p>
+    </div>
+
+    <div class="ho-steps">
+
+      <div class="ho-card">
+        <span class="ho-num">1</span>
+        <h3>Call, text, or email us</h3>
+        <p>Tell us how many pounds you need (10, 20, 50, 100 lb bags)
+           and roughly when you're coming. We'll have it bagged and ready.</p>
+        <div class="ho-contact">
+          <a class="ho-btn primary" href="tel:+18595143114">Call or text (859) 514-3114</a>
+          <a class="ho-btn secondary"
+             href="mailto:orders@bluegrassdryice.com?subject=Dry%20Ice%20Pickup%20Order">Email us</a>
+        </div>
+      </div>
+
+      <div class="ho-card">
+        <span class="ho-num">2</span>
+        <h3>Head to our pickup location</h3>
+        <p class="ho-addr">3004 Park Central Ave, Suite B<br>Nicholasville, KY 40356</p>
+        <p class="ho-hours">Mon–Fri: 9:00 AM–5:00 PM</p>
+        <p>Look for the Dry Ice Kentucky sign and come to Suite B at the warehouse
+           entrance. Bring a cooler if you have one — foam containers are
+           available for
+           $10.00–$25.00.</p>
+        <a class="ho-link" href="https://maps.google.com/?q=3004+Park+Central+Ave,+Nicholasville,+KY+40356"
+           target="_blank" rel="noopener">Open in Maps ↗</a>
+      </div>
+
+      <div class="ho-card">
+        <span class="ho-num">3</span>
+        <h3>Pay on site</h3>
+        
+        <p>Pay at the counter when you pick up — cash or card.
+           No deposit and nothing to pay ahead of time.</p>
+        <p>You must be 18+ with a valid ID. We'll walk you through safe handling
+           if it's your first time.</p>
+      </div>
+
+    </div>
+
+    <div class="ho-note">
+      <strong>Need 200+ lbs or a standing order?</strong> Call ahead so we can
+      confirm supply and have it staged for you.
+    </div>
+
+  </div>
+</section>
+
+<!-- PICKUP INSTRUCTIONS -->
+<section class="section soft" id="pickup">
+  <div class="wrap">
+    <div class="eyebrow">No pickup anxiety</div>
+    <h2>Pickup Instructions</h2>
+    <p class="lead">Know exactly where to go, what to bring, and what happens when you arrive.</p>
+
+    <div class="pickup-grid">
+      
+      <div class="sign sign-photo-holder">
+        <img class="sign-photo"
+             src="/static/images/DIKYPickup_Location_Image.jpg"
+             alt="The Dry Ice Kentucky pickup entrance at 3004 Park Central Ave, Suite B, Nicholasville, KY 40356,
+                  showing where to park and which door to use"
+             loading="lazy" decoding="async"
+             width="1100" height="825">
+        <div class="sign-plate"><img class="brand-logo" src="/static/images/logo.png" alt="Dry Ice Kentucky — Nicholasville, Lexington, Georgetown" width="600" height="138"></div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <div><b>Find us</b><p>3004 Park Central Ave, Suite B, Nicholasville, KY 40356. We're in the Park Central business park,
+            just off US-27.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <div><b>Park near the pickup entrance</b><p>Look for the Dry Ice Kentucky sign at Suite B. Please come to
+            the pickup door on the right side of the building — not the main office entrance.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <div><b>Text us when you arrive</b><p>Call or text (859) 514-3114 with your order number so we can
+            match your order quickly.</p></div>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <div><b>Bring your ID and container</b><p>You must be 18+ for pickup. Bring a ventilated cooler or add
+            a foam container when ordering.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="location-card">
+      <div class="location-info">
+        <h3>Pickup location</h3>
+        <div class="info-row"><b>Address</b><div>3004 Park Central Ave, Suite B<br>Nicholasville, KY 40356</div></div>
+        <div class="info-row"><b>Hours</b><div>Mon–Fri: 9:00 AM–5:00 PM<br>Saturday: closed<br>Sunday: closed</div></div>
+        <div class="info-row"><b>Phone</b><div><a href="tel:+18595143114">(859) 514-3114</a></div></div>
+        <div class="info-row"><b>Email</b><div><a href="mailto:orders@bluegrassdryice.com">orders@bluegrassdryice.com</a></div></div>
+      </div>
+      <div class="mapbox">
+        <iframe title="Map to Dry Ice Kentucky pickup location" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=3004+Park+Central+Ave,+Nicholasville,+KY+40356&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section uses" id="uses">
+  <div class="wrap">
+    <h2>Reliable Supply. Premium Quality.</h2>
+    <p class="lead">From shipping and food preservation to events, emergencies, outdoor adventures, and industrial
+       work, our dry ice pellets are made for jobs that need serious cold — without the guesswork.</p>
+
+    <div class="use-grid">
+      
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#f3d9b8,#c98f4e)">
+          <img src="/static/images/DIKY_food_and_beverage_image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Food &amp; Beverage</h3>
+          <p>Keep food frozen, support food processing, and handle specialty beverage applications.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#cfe0f2,#7f9fc4)">
+          <img src="/static/images/DIKY_shipping_and_transport_image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Shipping &amp; Transport</h3>
+          <p>Maintain colder conditions for temperature-sensitive products while they are packed or in transit.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#f6e0c5,#d99a5c)">
+          <img src="/static/images/DIKY_Emergency_cooling_image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Emergency Cooling</h3>
+          <p>Get temporary cold support when the power goes out or refrigeration equipment stops working.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#d7e7cf,#7c9d72)">
+          <img src="/static/images/DIKY_Camping_Image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Camping, Hunting &amp; Outdoors</h3>
+          <p>Keep coolers colder for longer on camping, hunting, fishing, boating, and extended outdoor trips.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#e0d4f2,#8d73bd)">
+          <img src="/static/images/DIKY_Events_specialfx_image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Events &amp; Special Effects</h3>
+          <p>Create dramatic low-lying fog and memorable visual effects for parties, displays, and productions.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#cfe9ec,#6ea6ad)">
+          <img src="/static/images/DIKY_Science_Lab_Image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Science, Labs &amp; Education</h3>
+          <p>Useful for demonstrations, research workflows, sample cooling, and hands-on science applications.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#dcdfe4,#8a919c)">
+          <img src="/static/images/DIKY_industrial_maintenance_image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Industrial &amp; Maintenance</h3>
+          <p>Support specialty cleaning, manufacturing, fitting, cooling, and maintenance processes.</p>
+        </div>
+      </article>
+      
+      <article class="use-card">
+        <div class="use-media" style="background:linear-gradient(150deg,#dcebc8,#8aa85f)">
+          <img src="/static/images/DIKY_Agriculture_Image.jpg"
+               alt=""
+               loading="lazy"
+               decoding="async"
+               width="700" height="467">
+        </div>
+        <div class="use-body">
+          <h3>Agriculture &amp; Specialty Uses</h3>
+          <p>Flexible pelletized dry ice for agricultural, plant-handling, production, and specialty commercial needs.</p>
+        </div>
+      </article>
+      
+    </div>
+
+    <div class="uses-cta">
+      <div>
+        <h3>Whatever the job, start with the right amount.</h3>
+        <p>Our pelletized dry ice is easy to portion, pack, and distribute. Choose from
+           10, 20, 50, 100 lb quantities
+           for same-day local pickup.</p>
+      </div>
+      <a class="btn primary" href="#order">Order for pickup →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY -->
+<section class="section" id="safety">
+  <div class="wrap">
+    <div class="eyebrow">Handled with care</div>
+    <h2>Safety &amp; Handling</h2>
+    <p class="lead">Dry ice is extremely cold and releases carbon dioxide gas as it sublimates. Use it only with
+       proper handling and ventilation.</p>
+
+    <div class="safety-grid">
+      <div class="safe-list">
+        
+        <div class="safe-item">
+          <div class="ic">🧤</div>
+          <div><b>Use insulated gloves or tongs</b><p>Direct skin contact can cause severe frostbite in seconds. Never handle pellets with bare hands.</p></div>
+        </div>
+        
+        <div class="safe-item">
+          <div class="ic">🚗</div>
+          <div><b>Ventilate during transport</b><p>Keep fresh air moving in enclosed vehicles and never leave dry ice in an occupied sealed space.</p></div>
+        </div>
+        
+        <div class="safe-item">
+          <div class="ic">⚠️</div>
+          <div><b>Never use an airtight container</b><p>Carbon dioxide gas must be able to escape as the dry ice sublimates, or pressure can build dangerously.</p></div>
+        </div>
+        
+        <div class="safe-item">
+          <div class="ic">🚫</div>
+          <div><b>Never touch, taste, or ingest</b><p>Keep dry ice away from children and pets, and use it only for its intended purpose.</p></div>
+        </div>
+        
+      </div>
+
+      <div class="wont">
+        <h3>What we won't do</h3>
+        <p class="small" style="color:#8a5757">To keep pickup simple and safe:</p>
+        <ul>
+          <li>We do not ship dry ice from this location.</li><li>We do not place dry ice in airtight containers.</li><li>We do not accept returns on unused dry ice.</li><li>We do not recommend transporting it in unventilated passenger compartments.</li>
+        </ul>
+        <p class="ask"><b>Questions?</b> Call or text before pickup and we'll help you plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section class="section soft" id="guides">
+  <div class="wrap">
+    <div class="eyebrow">Helpful resources</div>
+    <h2>Dry Ice Guides</h2>
+    <p class="lead">Answers the questions people usually have before they buy.</p>
+
+    <div class="guide-grid">
+      
+      <article class="guide">
+        <div class="th">📦</div>
+        <div><h3>Shipping frozen food with dry ice</h3><p>Packing sequence, ventilation, timing, and how much to start with.</p></div>
+      </article>
+      
+      <article class="guide">
+        <div class="th">❄️</div>
+        <div><h3>Keeping a freezer cold during an outage</h3><p>Where to place dry ice and how to minimize cold loss safely.</p></div>
+      </article>
+      
+      <article class="guide">
+        <div class="th">🎃</div>
+        <div><h3>Making fog for Halloween or a party</h3><p>Create dense low-lying fog and manage water temperature safely.</p></div>
+      </article>
+      
+      <article class="guide">
+        <div class="th">🏕️</div>
+        <div><h3>Camping &amp; hunting coolers</h3><p>Keep frozen items frozen longer without turning the cooler into an airtight box.</p></div>
+      </article>
+      
+      <article class="guide">
+        <div class="th">⏱️</div>
+        <div><h3>How long does dry ice last?</h3><p>Understand sublimation and the factors that change how quickly dry ice disappears.</p></div>
+      </article>
+      
+      <article class="guide">
+        <div class="th">🧊</div>
+        <div><h3>Pellets vs. blocks</h3><p>Why pellets are convenient for flexible packing, fog effects, and portioning.</p></div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="eyebrow">Common questions</div>
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      
+      <div class="faq-item">
+        <button type="button" class="faq-q">How fast does dry ice sublimate?<span class="chev">+</span></button>
+        <div class="faq-a">A common planning range is roughly 5–10 lb per 24 hours in a well-insulated cooler. Actual loss varies with temperature, insulation, air space, and how often the container is opened.</div>
+      </div>
+      
+      <div class="faq-item">
+        <button type="button" class="faq-q">What size are the pellets?<span class="chev">+</span></button>
+        <div class="faq-a">We stock standard pelletized dry ice, which is easy to portion, fills voids around products, and works well for both cooling and fog effects.</div>
+      </div>
+      
+      <div class="faq-item">
+        <button type="button" class="faq-q">Do you sell blocks?<span class="chev">+</span></button>
+        <div class="faq-a">This location is built around dry ice pellets. If you need blocks for a specific application, call or text us and we&#39;ll tell you what we can do.</div>
+      </div>
+      
+      <div class="faq-item">
+        <button type="button" class="faq-q">Can I get dry ice the same day?<span class="chev">+</span></button>
+        <div class="faq-a">Yes, when inventory is available. Same-day pickup is available from 9:00 AM to 5:00 PM, Monday through Friday.</div>
+      </div>
+      
+      <div class="faq-item">
+        <button type="button" class="faq-q">Can I return unused dry ice?<span class="chev">+</span></button>
+        <div class="faq-a">No. Dry ice sublimates continuously, so all dry ice sales are final.</div>
+      </div>
+      
+      <div class="faq-item">
+        <button type="button" class="faq-q">Can I store dry ice in my freezer?<span class="chev">+</span></button>
+        <div class="faq-a">Dry ice is far colder than a household freezer and can trip the thermostat or damage the appliance. Store it in a ventilated insulated container instead.</div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section soft" id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Questions before a large order?</div>
+    <h2>Get in Touch</h2>
+    <p class="lead">If you have an unusual quantity, use case, or pickup question, reach us directly.</p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="info-row"><b>Call / Text</b><div><a href="tel:+18595143114">(859) 514-3114</a></div></div>
+        <div class="info-row"><b>Email</b><div><a href="mailto:orders@bluegrassdryice.com">orders@bluegrassdryice.com</a></div></div>
+        <div class="info-row"><b>Address</b><div>3004 Park Central Ave, Suite B<br>Nicholasville, KY 40356</div></div>
+        <div class="info-row"><b>Hours</b><div>Mon–Fri: 9:00 AM–5:00 PM<br>Saturday: closed<br>Sunday: closed</div></div>
+        <a class="btn primary" style="margin-top:18px" href="#order">Order for pickup →</a>
+      </div>
+      <div class="mapbox">
+        <iframe title="Dry Ice Kentucky location map" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=3004+Park+Central+Ave,+Nicholasville,+KY+40356&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <div class="brand footer-brand">
+          <span class="logo-panel"><img class="brand-logo" src="/static/images/logo.png" alt="Dry Ice Kentucky — Nicholasville, Lexington, Georgetown" width="600" height="138"></span>
+        </div>
+        <p style="margin-top:16px;max-width:320px">Simple local dry ice pickup for Nicholasville, Lexington,
+           and Central Kentucky.</p>
+      </div>
+      <div>
+        <h4>Order</h4>
+        <a href="#order">Order pickup</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#estimator">How much do I need?</a>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <a href="#guides">Guides</a>
+        <a href="#safety">Safety</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#contact">Contact</a>
+        <a href="#pickup">Pickup instructions</a>
+        <a href="tel:+18595143114">(859) 514-3114</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Dry Ice Kentucky. All rights reserved.</span>
+      <span>Local pickup only — we do not ship dry ice.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Order updated.</div>
+
+<script>
+  // Bag sizes and prices, baked in at build time. The estimator below
+  // uses them to name the closest size we stock.
+  window.CATALOG = [{"best_for": "Small coolers, short trips, fog effects", "id": 1, "in_stock": true, "lbs": 10, "name": "10 lb bag", "per_lb": "$3.50/lb", "price_cents": 3500, "stock": 16}, {"best_for": "Shipping, medium coolers, day events", "id": 2, "in_stock": true, "lbs": 20, "name": "20 lb bag", "per_lb": "$3.00/lb", "price_cents": 6000, "stock": 32}, {"best_for": "Freezer backup, large containers", "id": 3, "in_stock": true, "lbs": 50, "name": "50 lb bag", "per_lb": "$2.80/lb", "price_cents": 14000, "stock": 40}, {"best_for": "Large shipments and high-volume cooling", "id": 4, "in_stock": true, "lbs": 100, "name": "100 lb bag", "per_lb": "$2.50/lb", "price_cents": 25000, "stock": 40}];
+</script>
+<script src="/static/js/main.js"></script>
+</body>
+</html>

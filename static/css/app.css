@@ -1,0 +1,489 @@
+/* Bluegrass Dry Ice — commerce pages.
+   Loaded after styles.css and reuses its custom properties, so the shop,
+   account, and admin screens match the existing site without duplicating or
+   overriding any of its rules. */
+
+/* --------------------------------------------------------------- logo */
+/* One JPEG serves all three placements. JPEG has no transparency, so the file
+   is flattened onto white: that blends invisibly into the header and into the
+   pickup name plate, both of which are already white. */
+.brand-logo {
+  display: block;
+  height: 46px;
+  width: auto;
+  max-width: 100%;
+}
+
+/* The header brand is now a single image, so the flex layout that spaced a
+   snowflake tile against two lines of text is no longer needed. */
+.header .brand { gap: 0; }
+
+/* The footer is dark navy and the wordmark is black, so the logo sits on a
+   white panel rather than being invisible. Recolouring is not possible with a
+   flat JPEG, and a white box reads as deliberate. */
+.footer-brand .logo-panel {
+  display: inline-block;
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  line-height: 0;
+}
+.footer-brand .brand-logo { height: 54px; }
+
+/* The name plate on the pickup photo is now just the logo, with no white
+   card behind it. Black on that photo's grass measures 4.5:1, exactly the
+   readable threshold, so a drop shadow lifts it without adding a background. */
+.sign-plate .brand-logo {
+  height: 44px;
+  filter: drop-shadow(0 2px 6px rgba(255, 255, 255, .9))
+          drop-shadow(0 0 16px rgba(255, 255, 255, .75));
+}
+
+@media (max-width: 640px) {
+  .brand-logo { height: 36px; }
+  .footer-brand .brand-logo { height: 42px; }
+  .sign-plate .brand-logo { height: 32px; }
+}
+@media (max-width: 400px) {
+  .brand-logo { height: 28px; }
+}
+
+/* ------------------------------------------------------------- photos */
+/* The hero lives entirely in styles.css: its height, gradient, photo and
+   text column are defined there as one block. Nothing here re-styles it,
+   because .hero.has-photo would outrank the plain .hero selector and quietly
+   take the layout back over.
+
+   The only hero rules kept below are the three the site asked for on top of
+   that design: a larger paragraph, larger buttons, and the headline breaks. */
+
+/* Three fixed lines only work while there is room for them. Below this the
+   headline wraps naturally instead. */
+@media (max-width: 720px) {
+  .hero h1 .h1-break { display: none; }
+}
+
+/* Supporting copy and buttons a step up in size. Neither is sized by the
+   hero block in styles.css, so these add to that design rather than fight it. */
+.hero p { font-size: clamp(1.02rem, 1.2vw, 1.14rem); line-height: 1.6; }
+
+.hero-actions .btn {
+  font-size: 1.02rem;
+  padding: 16px 30px;
+  border-radius: 11px;
+}
+
+@media (max-width: 720px) {
+  .hero-actions .btn { padding: 14px 24px; font-size: .98rem; }
+}
+
+/* --------------------------------------------------- section headings */
+/* Section titles such as "Simple, Upfront Dry Ice Pricing." lift slightly so
+   the page keeps one consistent type scale. */
+.section h2 { font-size: clamp(2.05rem, 3.9vw, 3.35rem); }
+.section .lead { font-size: clamp(1.02rem, 1.2vw, 1.14rem); line-height: 1.6; }
+
+/* Paired with the solid primary button. Translucent rather than solid so the
+   photo and gradient stay visible through it. */
+.btn.on-dark {
+  background: rgba(255, 255, 255, .10);
+  border: 1px solid rgba(255, 255, 255, .34);
+  color: #fff;
+  backdrop-filter: blur(2px);
+}
+.btn.on-dark:hover {
+  background: rgba(255, 255, 255, .18);
+  border-color: rgba(255, 255, 255, .55);
+  transform: translateY(-1px);
+}
+
+/* The pickup photo keeps .sign's original fixed height from styles.css and
+   fills it. The name plate sits in the bottom-left corner rather than the
+   centre, so it never covers the PICKUP and PARKING labels in the middle of
+   the picture. */
+.sign.sign-photo-holder {
+  display: block;
+  position: relative;
+  padding: 0;
+}
+
+/* styles.css darkens the lower half through ::before to keep the plate
+   readable. Softened here so the photo stays bright. */
+.sign.sign-photo-holder::before {
+  height: 38%;
+  background: linear-gradient(180deg, transparent, rgba(8, 31, 60, .38));
+  z-index: 1;
+}
+
+.sign > .sign-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+  z-index: 0;
+}
+
+.sign.sign-photo-holder > .sign-plate {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 2;
+  /* No white card, no shadow, no padding: the logo alone sits on the photo. */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+@media (max-width: 560px) {
+  .sign.sign-photo-holder > .sign-plate { left: 12px; bottom: 12px; }
+}
+
+/* Use-case photos are <img> elements so they can lazy-load, but they must
+   still fill the fixed-height media strip exactly as the old CSS background
+   did. object-fit does that cropping. The gradient behind shows through while
+   the image loads, and remains visible if it never arrives. */
+.use-media { position: relative; overflow: hidden; }
+.use-media img {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .use-card { transition: none; }
+}
+
+/* ------------------------------------------------- header account links */
+/* Sits beside the header's call-to-action button. Unlike .navlinks, which
+   styles.css hides below 1000px, these stay visible so a customer can reach
+   their order from a phone at the pickup counter. */
+.nav-actions {
+  display: flex; align-items: center; gap: 16px;
+  flex: 0 0 auto;           /* never shrink; the brand yields space instead */
+}
+
+.nav-account {
+  font-size: .88rem; font-weight: 600; color: var(--ink);
+  text-decoration: none; white-space: nowrap;
+}
+.nav-account:hover { color: var(--blue); }
+
+/* Sign Out has to be a form button, because signing out is a POST. These
+   rules strip the browser's default button chrome so it matches the links
+   beside it exactly. */
+.nav-signout { display: inline; margin: 0; }
+.nav-account.as-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+.nav-account.as-button:hover { color: var(--blue); }
+
+@media (max-width: 480px) {
+  .nav-account.as-button { font-size: .82rem; }
+}
+
+/* Let the brand shrink rather than push the account links off-screen.
+   Without min-width:0 a flex item refuses to shrink below its content. */
+.header .brand { min-width: 0; }
+
+@media (max-width: 1000px) {
+  .nav-actions { gap: 13px; }
+}
+@media (max-width: 640px) {
+  /* styles.css already hides the tagline here; tighten the rest to match. */
+  .nav { gap: 12px; }
+  .nav-actions { gap: 11px; }
+  .nav-account { font-size: .82rem; }
+}
+@media (max-width: 400px) {
+  .nav-actions { gap: 9px; }
+  .nav-actions .btn.small { padding: 9px 12px; font-size: .8rem; }
+
+  /* The brand is a single image now, so it shrinks instead of being
+     collapsed to a mark. This keeps room for the account links. */
+  .header .brand-logo { height: 26px; }
+}
+
+.app-main { padding: 34px 0 70px; min-height: 60vh; }
+.app-main > .wrap { max-width: 1120px; }
+
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; color: var(--navy); }
+.app-main h2 { font-size: 21px; margin: 0 0 12px; color: var(--navy); }
+.app-main h3 { font-size: 16px; margin: 0 0 8px; color: var(--navy); }
+
+/* ------------------------------------------------------------- flashes */
+.flashes { margin-bottom: 20px; display: grid; gap: 9px; }
+.flash {
+  padding: 12px 15px; border-radius: 12px; font-size: 14.5px;
+  border: 1px solid var(--line); background: #fff; box-shadow: var(--shadow-sm);
+}
+.flash-success { background: #eef9f2; border-color: #bfe4cd; color: #1a6b3f; }
+.flash-error   { background: var(--rose-bg); border-color: var(--rose-line); color: var(--rose-ink); }
+.flash-warning { background: var(--amber-bg); border-color: var(--amber-line); color: var(--amber-ink); }
+.flash-info    { background: var(--blue-soft); border-color: #cbddf6; color: var(--blue-dark); }
+
+/* -------------------------------------------------------------- panels */
+.panel {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r);
+  padding: 24px; box-shadow: var(--shadow-sm);
+}
+.panel + .panel { margin-top: 20px; }
+.panel.narrow { max-width: 520px; margin-inline: auto; }
+.panel.center { text-align: center; }
+.panel-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+}
+
+.grid-2 { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 16px; }
+@media (max-width: 880px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* --------------------------------------------------------------- badges */
+.badge {
+  display: inline-block; padding: 4px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
+  text-transform: uppercase; border: 1px solid transparent; white-space: nowrap;
+}
+.badge-paid, .badge-picked_up, .badge-synced {
+  background: #eef9f2; color: #1a6b3f; border-color: #bfe4cd;
+}
+.badge-pending, .badge-pending_payment, .badge-processing, .badge-refund_pending, .badge-open {
+  background: var(--amber-bg); color: var(--amber-ink); border-color: var(--amber-line);
+}
+.badge-ready_for_pickup, .badge-payment_due_at_pickup, .badge-not_required_yet {
+  background: var(--blue-soft); color: var(--blue-dark); border-color: #cbddf6;
+}
+.badge-cancelled, .badge-failed, .badge-payment_failed, .badge-refunded, .badge-void, .badge-skipped {
+  background: var(--rose-bg); color: var(--rose-ink); border-color: var(--rose-line);
+}
+
+/* --------------------------------------------------------------- tables */
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table th {
+  text-align: left; padding: 10px 12px; border-bottom: 2px solid var(--line-2);
+  color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em;
+}
+.data-table td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.data-table tbody tr:hover { background: var(--bg-soft); }
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.table-wrap { overflow-x: auto; margin: 0 -4px; }
+
+/* --------------------------------------------------------------- totals */
+.totals { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+.totals .sum-line { display: flex; justify-content: space-between; padding: 6px 0; font-size: 15px; }
+.totals .sum-line.grand {
+  border-top: 2px solid var(--navy); margin-top: 8px; padding-top: 12px;
+  font-size: 19px; font-weight: 800; color: var(--navy);
+}
+.due-banner {
+  margin-top: 14px; padding: 13px 16px; border-radius: 12px;
+  background: var(--amber-bg); border: 1px solid var(--amber-line); color: var(--amber-ink);
+  font-weight: 700;
+}
+.paid-banner {
+  margin-top: 14px; padding: 13px 16px; border-radius: 12px;
+  background: #eef9f2; border: 1px solid #bfe4cd; color: #1a6b3f; font-weight: 700;
+}
+
+/* ---------------------------------------------------------------- forms */
+.form-grid { display: grid; gap: 15px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+@media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+.form-field label { display: block; font-weight: 700; font-size: 13.5px; margin-bottom: 6px; color: var(--ink); }
+.form-field input[type=text], .form-field input[type=email], .form-field input[type=tel],
+.form-field input[type=password], .form-field input[type=number], .form-field select,
+.form-field textarea {
+  width: 100%; padding: 11px 13px; border: 1px solid var(--line-2); border-radius: 11px;
+  font: inherit; font-size: 15px; background: #fff; color: var(--ink);
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  outline: 2px solid var(--blue); outline-offset: 1px; border-color: var(--blue);
+}
+.form-field .hint { font-size: 12.5px; color: var(--muted); margin-top: 5px; }
+.form-field textarea { min-height: 84px; resize: vertical; }
+
+.pay-choice { display: grid; gap: 11px; }
+.pay-option {
+  display: flex; gap: 12px; align-items: flex-start; padding: 15px;
+  border: 2px solid var(--line); border-radius: 13px; cursor: pointer; background: #fff;
+}
+.pay-option:hover { border-color: var(--line-2); }
+.pay-option input { margin-top: 3px; }
+.pay-option b { display: block; margin-bottom: 3px; }
+.pay-option span { font-size: 13.5px; color: var(--muted); }
+.pay-option:has(input:checked) { border-color: var(--blue); background: var(--blue-soft); }
+
+/* Offered but not selectable. Dimmed so it reads as unavailable rather than
+   broken, and still clickable so the click handler can explain why. */
+.pay-option-disabled {
+  opacity: .62;
+  cursor: not-allowed;
+  background: var(--bg-soft);
+}
+.pay-option-disabled:hover { border-color: var(--line); }
+.pay-option-disabled b::after {
+  content: " — unavailable";
+  font-weight: 600;
+  color: var(--amber-ink);
+}
+
+/* -------------------------------------------------------------- actions */
+.row-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.row-actions.center { justify-content: center; }
+.btn.danger { background: var(--rose-ink); border-color: var(--rose-ink); color: #fff; }
+.btn.danger:hover { background: #822e2e; }
+.btn[disabled] { opacity: .5; cursor: not-allowed; }
+
+/* --------------------------------------------------------------- admin */
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.filter-chip {
+  padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-2);
+  background: #fff; font-size: 13px; font-weight: 600; color: var(--ink);
+  text-decoration: none; white-space: nowrap;
+}
+.filter-chip:hover { border-color: var(--blue); }
+.filter-chip.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.filter-chip .count { opacity: .68; margin-left: 5px; font-weight: 500; }
+
+.search-bar { display: flex; gap: 9px; margin-bottom: 18px; flex-wrap: wrap; }
+.search-bar input {
+  flex: 1 1 260px; padding: 10px 14px; border: 1px solid var(--line-2);
+  border-radius: 11px; font: inherit; font-size: 15px;
+}
+
+.kv { display: grid; grid-template-columns: 170px 1fr; gap: 9px 16px; font-size: 14.5px; }
+.kv dt { color: var(--muted); font-weight: 600; }
+.kv dd { margin: 0; color: var(--ink); }
+@media (max-width: 560px) { .kv { grid-template-columns: 1fr; gap: 3px 0; } .kv dd { margin-bottom: 9px; } }
+
+.audit-list { list-style: none; padding: 0; margin: 0; font-size: 13.5px; }
+.audit-list li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.audit-list .when { color: var(--muted); font-size: 12.5px; }
+.audit-list code {
+  background: var(--bg-soft); padding: 2px 6px; border-radius: 6px;
+  font-size: 12px; word-break: break-word;
+}
+
+.config-warning {
+  padding: 15px 17px; border-radius: 13px; background: var(--amber-bg);
+  border: 1px solid var(--amber-line); color: var(--amber-ink);
+  font-size: 14px; margin-bottom: 18px;
+}
+.config-warning b { display: block; margin-bottom: 5px; }
+.config-list { list-style: none; padding: 0; margin: 10px 0 0; font-size: 13px; }
+.config-list li { padding: 5px 0; border-bottom: 1px dashed var(--amber-line); }
+.config-list li:last-child { border-bottom: 0; }
+
+/* ------------------------------------------------------------ line item */
+.line-item { display: flex; justify-content: space-between; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+.line-item:last-child { border-bottom: 0; }
+.line-item .meta { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.line-item .amount { font-weight: 700; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.stock-note { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+.stock-out { color: var(--rose-ink); font-weight: 700; }
+
+.pickup-box {
+  background: var(--blue-soft); border: 1px solid #cbddf6; border-radius: 13px;
+  padding: 17px; font-size: 14px; color: var(--ink);
+}
+.pickup-box h3 { margin-top: 0; }
+.pickup-box p { margin: 0 0 8px; }
+.pickup-box p:last-child { margin-bottom: 0; }
+
+.muted-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.inline-form { display: inline; }
+.empty-state { text-align: center; padding: 46px 20px; color: var(--muted); }
+.empty-state p { margin-bottom: 18px; }
+
+/* ================================================== How to Order section
+   Interim section shown in place of the order builder while online checkout
+   is switched off. Everything is scoped under .ho-section so it cannot reach
+   the rest of the site. Colours are its own tokens, as supplied. */
+.ho-section {
+  --ho-navy: #0b2545;
+  --ho-blue: #2563eb;
+  --ho-blue-dark: #1d4ed8;
+  --ho-text: #1f2937;
+  --ho-muted: #6b7280;
+  --ho-border: #e5e7eb;
+  --ho-bg: #f3f7fb;
+  --ho-soft: #eff6ff;
+  --ho-amber-bg: #fff8eb;
+  --ho-amber-border: #f6e3b7;
+  --ho-amber-text: #7a5a10;
+
+  background: var(--ho-bg);
+  padding: 72px 24px;
+  color: var(--ho-text);
+}
+
+.ho-wrap { max-width: 1120px; margin: 0 auto; }
+
+.ho-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ho-blue); margin: 0 0 10px;
+}
+.ho-head h2 {
+  font-size: 40px; line-height: 1.1; font-weight: 800;
+  color: var(--ho-navy); margin: 0 0 8px; letter-spacing: -.01em;
+}
+.ho-head p { margin: 0 0 28px; color: var(--ho-muted); font-size: 15px; max-width: 640px; }
+
+.ho-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.ho-card {
+  background: #fff; border: 1px solid var(--ho-border); border-radius: 14px;
+  padding: 26px 24px; box-shadow: 0 1px 2px rgba(11, 37, 69, .04);
+}
+.ho-num {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--ho-blue); color: #fff; font-size: 13px; font-weight: 700;
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.ho-card h3 { font-size: 17px; font-weight: 700; color: var(--ho-navy); margin: 0 0 8px; }
+.ho-card p { font-size: 13.5px; line-height: 1.6; color: var(--ho-muted); margin: 0 0 14px; }
+.ho-card a.ho-link { color: var(--ho-blue); font-weight: 600; text-decoration: none; }
+.ho-card a.ho-link:hover { text-decoration: underline; }
+
+.ho-contact { display: flex; flex-direction: column; gap: 8px; }
+
+.ho-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border-radius: 10px; padding: 12px 16px; font-size: 14px; font-weight: 700;
+  text-decoration: none; text-align: center;
+}
+.ho-btn.primary { background: var(--ho-blue); color: #fff; }
+.ho-btn.primary:hover { background: var(--ho-blue-dark); }
+.ho-btn.secondary { background: var(--ho-soft); color: var(--ho-blue); border: 1px solid #cfe0fb; }
+.ho-btn.secondary:hover { background: #e3eefc; }
+
+.ho-addr { font-size: 14px; line-height: 1.6; color: var(--ho-navy); font-weight: 600; margin: 0 0 6px; }
+.ho-hours { font-size: 13px; color: var(--ho-muted); margin: 0 0 14px; }
+
+.ho-note {
+  margin-top: 20px; background: var(--ho-amber-bg);
+  border: 1px solid var(--ho-amber-border); color: var(--ho-amber-text);
+  border-radius: 10px; padding: 14px 16px; font-size: 13px; line-height: 1.55;
+}
+.ho-note strong { font-weight: 700; }
+
+@media (max-width: 900px) {
+  .ho-steps { grid-template-columns: 1fr; }
+  .ho-head h2 { font-size: 32px; }
+}
+@media (max-width: 560px) {
+  .ho-section { padding: 56px 16px; }
+}
