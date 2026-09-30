@@ -487,3 +487,79 @@ h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; color: var(--navy); }
 @media (max-width: 560px) {
   .ho-section { padding: 56px 16px; }
 }
+
+/* ======================================== pricing table on small screens
+   The four columns need roughly 440px: the first is nowrap, and "Best for"
+   carries a sentence. A phone gives about 360px, so the table was clipping
+   inside .table-card, which hides its overflow. The row scrolled, but nothing
+   on screen said so, and the last column was simply cut off.
+
+   Below 720px each row becomes its own card and the column headings move
+   beside the values, so nothing is cut and nothing needs scrolling. */
+@media (max-width: 720px) {
+  .table-card { border: 0; box-shadow: none; background: none; overflow: visible; }
+  .table-scroll { overflow-x: visible; }
+
+  table.price,
+  table.price tbody,
+  table.price tr,
+  table.price td { display: block; width: 100%; }
+
+  /* The header row is replaced by the per-cell labels below. */
+  table.price thead { display: none; }
+
+  table.price tr {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    padding: 6px 4px;
+    margin-bottom: 12px;
+  }
+  table.price tr:last-child { margin-bottom: 0; }
+  table.price tbody tr:hover { background: #fff; }
+
+  table.price td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 18px;
+    border-top: 0;
+    padding: 9px 16px;
+    text-align: right;
+  }
+
+  /* The heading for each value, taken from data-label on the cell. */
+  table.price td::before {
+    content: attr(data-label);
+    flex: 0 0 auto;
+    text-align: left;
+    font-size: .7rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: var(--muted);
+  }
+
+  /* The bag size leads each card, so it reads as a heading rather than a row. */
+  table.price td:first-child {
+    white-space: normal;
+    font-size: 1.06rem;
+    padding-top: 13px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 11px;
+    margin-bottom: 3px;
+  }
+  table.price td:first-child::before { display: none; }
+  table.price td:first-child { justify-content: flex-start; text-align: left; }
+
+  table.price .price-cell { font-size: 1.06rem; }
+
+  /* A sentence reads better wrapping under its label than squeezed beside it. */
+  table.price td:last-child {
+    display: block;
+    text-align: left;
+    padding-bottom: 14px;
+  }
+  table.price td:last-child::before { display: block; margin-bottom: 4px; }
+}
