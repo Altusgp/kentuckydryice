@@ -396,7 +396,16 @@ h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; color: var(--navy); }
 /* --------------------------------------------------- grouped FAQ (landing)
    The landing page FAQ is split into titled groups and its answers carry
    paragraphs and lists, which the original one-sentence answers never did. */
-.faq-group { margin: 34px 0 0; font-size: 1.05rem; color: var(--navy); letter-spacing: -.01em; }
+/* Bold, larger than the questions beneath it, and in the site blue (the same
+   as the + icons), so each group stands out as a heading. #2f6fd8 on white is
+   4.79:1, which passes WCAG AA for text. */
+.faq-group {
+  margin: 38px 0 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -.015em;
+}
 .faq-group + .faq { margin-top: 10px; }
 .faq-a p { margin: 0 0 10px; }
 .faq-a p:last-child { margin-bottom: 0; }
