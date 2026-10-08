@@ -324,20 +324,6 @@ h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; color: var(--navy); }
 .pay-option span { font-size: 13.5px; color: var(--muted); }
 .pay-option:has(input:checked) { border-color: var(--blue); background: var(--blue-soft); }
 
-/* Offered but not selectable. Dimmed so it reads as unavailable rather than
-   broken, and still clickable so the click handler can explain why. */
-.pay-option-disabled {
-  opacity: .62;
-  cursor: not-allowed;
-  background: var(--bg-soft);
-}
-.pay-option-disabled:hover { border-color: var(--line); }
-.pay-option-disabled b::after {
-  content: " — unavailable";
-  font-weight: 600;
-  color: var(--amber-ink);
-}
-
 /* -------------------------------------------------------------- actions */
 .row-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
 .row-actions.center { justify-content: center; }
@@ -407,10 +393,30 @@ h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; color: var(--navy); }
 .empty-state { text-align: center; padding: 46px 20px; color: var(--muted); }
 .empty-state p { margin-bottom: 18px; }
 
+/* --------------------------------------------------- grouped FAQ (landing)
+   The landing page FAQ is split into titled groups and its answers carry
+   paragraphs and lists, which the original one-sentence answers never did. */
+.faq-group { margin: 34px 0 0; font-size: 1.05rem; color: var(--navy); letter-spacing: -.01em; }
+.faq-group + .faq { margin-top: 10px; }
+.faq-a p { margin: 0 0 10px; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-a ul { margin: 0 0 10px; padding-left: 20px; }
+.faq-a ul:last-child { margin-bottom: 0; }
+.faq-a li { margin: 4px 0; }
+.faq-a a { color: var(--blue); font-weight: 600; }
+
+/* ------------------------------------------------------- order builder
+   Layout lives with the original design in styles.css. These cover the two
+   states it never styled: a stepper at its limit, and a bag that is sold out. */
+.counter button:disabled { opacity: .35; cursor: not-allowed; background: #f4f9fe; }
+.bag-row.is-out { opacity: .62; }
+.bag-row.is-out span { color: var(--amber-ink, #8a5a00); }
+
 /* ================================================== How to Order section
-   Interim section shown in place of the order builder while online checkout
-   is switched off. Everything is scoped under .ho-section so it cannot reach
-   the rest of the site. Colours are its own tokens, as supplied. */
+   Call, come by, pay at the counter. Under the order builder on the home
+   page, and the only way to order on the landing page. Everything is scoped
+   under .ho-section so it cannot reach the rest of the site. Colours are its
+   own tokens, as supplied. */
 .ho-section {
   --ho-navy: #0b2545;
   --ho-blue: #2563eb;

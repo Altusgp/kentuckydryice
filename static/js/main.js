@@ -29,8 +29,8 @@ function estimate(use, days, size) {
   const low = Math.max(5, roundHalfToEven(raw / 5) * 5);
   const high = low + Math.max(5, roundHalfToEven(low * 0.15 / 5) * 5);
 
-  const bag = CATALOG.find((b) => b.lbs >= high) || CATALOG[CATALOG.length - 1];
-  return { low, high, bag, rangeLabel: low + '\u2013' + high + ' lb' };
+  const match = CATALOG.find((s) => s.lbs >= high) || CATALOG[CATALOG.length - 1];
+  return { low, high, match, rangeLabel: low + '\u2013' + high + ' pounds' };
 }
 
 function calculateNeed() {
@@ -46,12 +46,12 @@ function calculateNeed() {
   const label = $('recBagLabel');
 
   if (range) range.textContent = result.rangeLabel;
-  if (label && result.bag) label.textContent = result.bag.name;
-  if (copy && result.bag) {
+  if (label && result.match) label.textContent = result.match.name;
+  if (copy && result.match) {
     copy.textContent =
-      'A practical starting range for this use and duration. The ' +
-      result.bag.name + ' (' + money(result.bag.price_cents) + ') is the ' +
-      'closest size we stock \u2014 choose the next size up if you want a ' +
+      'A practical starting range for this use and duration. ' +
+      result.match.name + ' (' + money(result.match.price_cents) + ') is the ' +
+      'closest amount we stock \u2014 choose the next amount up if you want a ' +
       'safety margin.';
   }
 }
