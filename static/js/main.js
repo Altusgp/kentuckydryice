@@ -30,7 +30,7 @@ function estimate(use, days, size) {
   const high = low + Math.max(5, roundHalfToEven(low * 0.15 / 5) * 5);
 
   const match = CATALOG.find((s) => s.lbs >= high) || CATALOG[CATALOG.length - 1];
-  return { low, high, match, rangeLabel: low + '\u2013' + high + ' pounds' };
+  return { low, high, match, rangeLabel: low + '\u2013' + high + ' lbs' };
 }
 
 function calculateNeed() {
